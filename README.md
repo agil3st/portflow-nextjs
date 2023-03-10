@@ -1,6 +1,6 @@
 # Portflow
 
-![Portflow](https://i.imgur.com/htMLh2W.png)
+![Portflow](https://i.imgur.com/27eLPmM.jpg)
 
 ## Welcome to Portflow x Next.js
 
