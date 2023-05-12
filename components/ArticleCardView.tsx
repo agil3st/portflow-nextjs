@@ -9,7 +9,7 @@ export default function ArticleCardView({ article }) {
           src={article.imageURL.iv}
           className="rounded-md aspect-[5/3] object-cover"
           alt="technology"
-          width={300}
+          width={400}
           height={200}
         />
       </Link>
