@@ -1,6 +1,4 @@
-import React from 'react'
-
-export default function page() {
+export default function Showcases() {
   return (
     <div>Showcase</div>
   )
