@@ -1,6 +1,10 @@
-export default async function api({ page, token, query, plain = false }) {
+export default async function api({ page, token, query, plain }) {
   var url = `${process.env.API_BASE_URL}/content/portflow/${page}/`;
-  if (plain) url = page
+  console.log(url);
+  
+  if (plain) {
+    url = page
+  }
 
   const res = await fetch(url, {
     headers: {
