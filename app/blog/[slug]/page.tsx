@@ -3,8 +3,9 @@ import ShareButtons from "@/components/ShareButtons";
 import api from "@/libs/api";
 import formatDate from "@/libs/date";
 import Image from "next/image";
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote } from 'next-mdx-remote'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+// import { Typography } from "@material-ui/core";
+
 
 export default async function Blog({params}) {
   const articleData = await api({
@@ -14,10 +15,11 @@ export default async function Blog({params}) {
     }
   });
   const article = articleData.items[0]
-  console.log(article);
+  console.log(article.data.content.iv);
   const source = article.data.content.iv
-  const mdxSource = await serialize(source)
-  const md = { props: { source: mdxSource } }
+  // const mdxSource = await serialize(source)
+  // const md = { props: { source: mdxSource } }
+  // const components = { Test, h2: (props) => <Typography variant="h2" {...props} /> }
   
 
   // return (
@@ -78,13 +80,16 @@ export default async function Blog({params}) {
           <div
             id="custom-markdown"
             className="wrapper">
-              <MDXRemote {...md} />
+              <MDXRemote className="prose" source={source} />
+              {/* {source} */}
             </div>
         </div>
       </div>
     </article>
   );
 }
+
+
 
 export async function generateStaticParams() {
   const posts = (await api({page: "story"})).items;
